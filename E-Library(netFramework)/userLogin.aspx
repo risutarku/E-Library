@@ -4,9 +4,10 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <div class="container">
       <div class="row">
-         <div class="col-md-6 mx-auto">
+         <div class="col-md-4 mx-auto">
 
             <div class="card">
                <div class="card-body">
@@ -41,7 +42,7 @@
                            <asp:TextBox CssClass="form-control" ID="TextBox2"
                                runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
                         </div>
-                        <div class="form-group d-grid gap-2">Ы
+                        <div class="form-group d-grid gap-2">
                            <asp:Button class="btn btn-success btn-block btn-lg" ID="Button1"
                                runat="server" Text="Login" />
                         </div>
@@ -60,4 +61,5 @@
          </div>
       </div>
    </div>
+
 </asp:Content>
