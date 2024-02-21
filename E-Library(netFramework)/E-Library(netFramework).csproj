@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="adminAuthorManagment.aspx" />
+    <Content Include="adminBookInventory.aspx" />
     <Content Include="adminBookIssuing.aspx" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
     <Content Include="bootstrap\js\bootstrap.bundle.min.js" />
@@ -2181,6 +2182,13 @@
     </Compile>
     <Compile Include="adminAuthorManagment.aspx.designer.cs">
       <DependentUpon>adminAuthorManagment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adminBookInventory.aspx.cs">
+      <DependentUpon>adminBookInventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminBookInventory.aspx.designer.cs">
+      <DependentUpon>adminBookInventory.aspx</DependentUpon>
     </Compile>
     <Compile Include="adminBookIssuing.aspx.cs">
       <DependentUpon>adminBookIssuing.aspx</DependentUpon>
