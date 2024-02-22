@@ -67,7 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="adminAuthorManagment.aspx" />
+    <Content Include="adminAuthorManagement.aspx" />
     <Content Include="adminBookInventory.aspx" />
     <Content Include="adminBookIssuing.aspx" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
@@ -2169,19 +2169,20 @@
     <Content Include="imgs\writer.png" />
     <Content Include="userProfile.aspx" />
     <Content Include="userSignUp.aspx" />
+    <Content Include="viewBooks.aspx" />
     <Content Include="Web.config" />
     <Content Include="userLogin.aspx" />
     <Content Include="adminLogin.aspx" />
-    <Content Include="adminPublisherManagment.aspx" />
-    <Content Include="adminMemberManegement.aspx" />
+    <Content Include="adminPublisherManagement.aspx" />
+    <Content Include="adminMemberManagement.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="adminAuthorManagment.aspx.cs">
-      <DependentUpon>adminAuthorManagment.aspx</DependentUpon>
+    <Compile Include="adminAuthorManagement.aspx.cs">
+      <DependentUpon>adminAuthorManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="adminAuthorManagment.aspx.designer.cs">
-      <DependentUpon>adminAuthorManagment.aspx</DependentUpon>
+    <Compile Include="adminAuthorManagement.aspx.designer.cs">
+      <DependentUpon>adminAuthorManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="adminBookInventory.aspx.cs">
       <DependentUpon>adminBookInventory.aspx</DependentUpon>
@@ -2240,19 +2241,26 @@
     <Compile Include="userSignUp.aspx.designer.cs">
       <DependentUpon>userSignUp.aspx</DependentUpon>
     </Compile>
-    <Compile Include="adminPublisherManagment.aspx.cs">
-      <DependentUpon>adminPublisherManagment.aspx</DependentUpon>
+    <Compile Include="adminPublisherManagement.aspx.cs">
+      <DependentUpon>adminPublisherManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="adminPublisherManagment.aspx.designer.cs">
-      <DependentUpon>adminPublisherManagment.aspx</DependentUpon>
+    <Compile Include="adminPublisherManagement.aspx.designer.cs">
+      <DependentUpon>adminPublisherManagement.aspx</DependentUpon>
     </Compile>
-    <Compile Include="adminMemberManegement.aspx.cs">
-      <DependentUpon>adminMemberManegement.aspx</DependentUpon>
+    <Compile Include="adminMemberManagement.aspx.cs">
+      <DependentUpon>adminMemberManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="adminMemberManegement.aspx.designer.cs">
-      <DependentUpon>adminMemberManegement.aspx</DependentUpon>
+    <Compile Include="adminMemberManagement.aspx.designer.cs">
+      <DependentUpon>adminMemberManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewBooks.aspx.cs">
+      <DependentUpon>viewBooks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewBooks.aspx.designer.cs">
+      <DependentUpon>viewBooks.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

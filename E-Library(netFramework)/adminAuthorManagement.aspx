@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="adminPublisherManagment.aspx.cs" Inherits="E_Library_netFramework_.WebForm3" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="adminAuthorManagement.aspx.cs" Inherits="E_Library_netFramework_.adminauthormanagment" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+
       <div class="container">
 
       <div class="row">
@@ -15,7 +15,7 @@
                  <div class="row">
                      <div class="col">
                         <center>
-                           <h3>Publisher Details</h3>
+                           <h3>Author Details</h3>
                         </center>
                      </div>
                   </div>
@@ -23,7 +23,7 @@
                   <div class="row">
                      <div class="col">
                          <center>
-                             <img width="100px" src="imgs/publisher.png" />
+                             <img width="100px" src="imgs/writer.png" />
                          </center>
                      </div>
                   </div>
@@ -37,7 +37,7 @@
                    <div class="row">
 
                        <div class="col-md-4">
-                           <label>Publisher ID</label>
+                           <label>Author ID</label>
                            <div class="form-group">
                                <div class="input-group">
                                    
@@ -51,10 +51,10 @@
                        </div>
                        
                        <div class="col-md-8">
-                           <label>Publisher Name</label>
+                           <label>Author Name</label>
                            <div class="form-group">
                                 <asp:TextBox CssClass="form-control" ID="TextBox4"
-                                    runat="server" placeholder="Publisher Name" ></asp:TextBox>
+                                    runat="server" placeholder="Author Name" ></asp:TextBox>
                            </div>
                        </div>
 
@@ -98,10 +98,11 @@
                   <div class="row">
                      <div class="col">
                         <center>
-                           <h3>Publisher List</h3>
+                           <h3>Author List</h3>
                         </center>
                      </div>
                   </div>
+
 
                   <div class="row">
                      <div class="col">
@@ -124,4 +125,5 @@
       </div>
 
     </div>
+
 </asp:Content>
