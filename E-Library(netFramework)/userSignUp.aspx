@@ -79,18 +79,14 @@
                                <asp:DropDownList class="form-control" ID="DropDownList1" runat="server">
                                    
                                    <asp:ListItem Text="Select" Value="select" />
-                                   <asp:ListItem Text="Abakan" Value="Abakan" />
-                                   <asp:ListItem Text="Achinsk" Value="Achinsk" />
-                                   <asp:ListItem Text="Barabinsk" Value="Barabinsk" />
-                                   <asp:ListItem Text="Bagan" Value="Bagan" />
-                                   <asp:ListItem Text="Barnaul" Value="Barnaul" />
-                                   <asp:ListItem Text="Krasnoyarsk" Value="Krasnoyarsk" />
-                                   <asp:ListItem Text="Kemerovo" Value="Kemerovo" />
-                                   <asp:ListItem Text="Novosibirsk" Value="Novosibirsk" />
-                                   <asp:ListItem Text="Novokuznetsk" Value="Novokuznetsk" />
-                                   <asp:ListItem Text="Omsk" Value="Omsk" />
-                                   <asp:ListItem Text="Slavgorod" Value="Slavgorod" />
-                                   <asp:ListItem Text="Tomsk" Value="Tomsk" />
+                                   <asp:ListItem Text="Altai Kray" Value="Altai Kray" />
+                                   <asp:ListItem Text="Altai Republic" Value="Altai Republic" />
+                                   <asp:ListItem Text="Khackasy republic" Value="Khackasy republic" />
+                                   <asp:ListItem Text="Krasnoyarsk region" Value="Krasnoyarsk region" />
+                                   <asp:ListItem Text="Kuzzzzzzzzzbas" Value="Kuzzzzzzzzzbas" />
+                                   <asp:ListItem Text="Novosibirsk region" Value="Novosibirsk region" />
+                                   <asp:ListItem Text="Omsk region" Value="Omsk region" />
+                                   <asp:ListItem Text="Tomsk region" Value="Tomsk region" />
 
                                </asp:DropDownList>
                            </div>
@@ -155,11 +151,10 @@
                    </div>
 
                   <div class="row">
-                    <div class="form-group">
-                        <a href="userSignUp.aspx" class="d-grid gap-2">
-                            <input class="btn btn-success btn-block btn-lg"  id="Button3"
-                                type="button" value="Sign Up" />
-                        </a>
+                    <div class="form-group d-grid gap-2">
+                            
+                           <asp:Button class="btn btn-success btn-block btn-lg" ID="Button1"
+                               runat="server" Text="Sign Up" OnClick="Button1_Click" />
                     </div>
                   </div>
 
