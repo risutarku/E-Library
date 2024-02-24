@@ -46,11 +46,9 @@
                            <asp:Button class="btn btn-success btn-block btn-lg" ID="Button1"
                                runat="server" Text="Login" OnClick="Button1_Click" />
                         </div>
-                        <div class="form-group">
-                            <a href="userSignUp.aspx" class="d-grid gap-2">
-                                <input class="btn btn-info btn-block btn-lg"  id="Button2"
-                                    type="button" value="Sign Up" />
-                            </a>
+                        <div class="form-group d-grid gap-2 ">
+                            <asp:Button class="btn btn-info btn-block btn-lg" ID="Button3"
+                               runat="server" Text="Login" OnClick="Button2_Click" />
                         </div>
                      </div>
                   </div>
