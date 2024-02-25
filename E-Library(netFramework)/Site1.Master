@@ -14,13 +14,15 @@
     <link href="fontawesome/css/all.css" rel="stylesheet" />
     <%--our custom css--%>
     <link href="css/customStyleSheet.css" rel="stylesheet" />
+
     <%--jquery--%>
     <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
     <%--popper js--%>
     <script src="bootstrap/js/popper.min.js"></script>
     <%--bootstrao js--%>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-
+    <%--datatables js--%>
+    <script src="datatable/js/jquery.dataTables.min.js"></script>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>

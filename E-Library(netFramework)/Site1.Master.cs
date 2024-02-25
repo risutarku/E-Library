@@ -13,7 +13,7 @@ namespace E_Library_netFramework_
         {
             try
             {
-                if (Session["role"].Equals(""))
+                if (Session["role"] == null)
                 {
                     LinkButton1.Visible = true; // user login link button
                     LinkButton2.Visible = true; // sign up link button
@@ -115,7 +115,6 @@ namespace E_Library_netFramework_
 
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
-
         }
 
         protected void LinkButton3_Click1(object sender, EventArgs e)
@@ -139,6 +138,8 @@ namespace E_Library_netFramework_
             LinkButton8.Visible = false; // book inventory link button
             LinkButton9.Visible = false; // book issuing link button
             LinkButton10.Visible = false; // member management link button
+
+            Response.Redirect("homePage.aspx");
         }
     }
 }
