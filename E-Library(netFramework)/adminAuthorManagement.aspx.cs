@@ -122,7 +122,6 @@ namespace E_Library_netFramework_
         }
         void updateAuthor()
         {
-
             try
             {
                 SqlConnection con = new SqlConnection(strcon);
