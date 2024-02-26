@@ -11,6 +11,8 @@
     <%--datatables css--%>
     <link href="datatable/css/jquery.dataTables.min.css" rel="stylesheet" />
     <%--fontawesome css--%>
+
+
     <link href="fontawesome/css/all.css" rel="stylesheet" />
     <%--our custom css--%>
     <link href="css/customStyleSheet.css" rel="stylesheet" />
