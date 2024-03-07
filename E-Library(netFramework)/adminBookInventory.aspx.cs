@@ -15,10 +15,15 @@ namespace E_Library_netFramework_
     public partial class adminBookInventory : System.Web.UI.Page
     {
         string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
+        static string global_filepath;
+        static int global_actual_stock, global_current_stock, global_issued_books;
         protected void Page_Load(object sender, EventArgs e)
         {
-            fillPublisherValues();
-            fillAuthorPublisherValues();
+            if (!IsPostBack)
+            {
+                fillAuthorPublisherValues();
+                fillPublisherValues();
+            }
             GridView1.DataBind();
         }
 
@@ -45,12 +50,13 @@ namespace E_Library_netFramework_
         // update button 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            updateBookByID();
         }
 
         // delete button 
         protected void Button3_Click(object sender, EventArgs e)
         {
-
+            deleteBookByID();
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -58,6 +64,130 @@ namespace E_Library_netFramework_
 
         }
         // user defined functions
+        void deleteBookByID()
+        {
+            if (checkIfBookExist())
+            {
+                try
+                {
+                    SqlConnection con = new SqlConnection(strcon);
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+
+                    SqlCommand cmd = new SqlCommand("DELETE FROM book_master_tbl WHERE book_id='" + TextBox3.Text.Trim() + "'", con);
+
+                    cmd.Parameters.AddWithValue("@author_name", TextBox4.Text.Trim());
+
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    Response.Write("<script>alert('Book Deleted successfully');</script>");
+                    GridView1.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("<script>alert('" + ex.Message + "');</script>");
+                }
+            }
+            else
+            {
+                Response.Write("<script>alert('Invalid member ID');</script>");
+
+            }
+        }
+        void updateBookByID()
+        {
+            if (checkIfBookExist())
+            {
+                try
+                {
+                    int actual_stock = Convert.ToInt32(TextBox2.Text.Trim());
+                    int current_stock = Convert.ToInt32(TextBox6.Text.Trim());
+
+                    if (global_actual_stock == actual_stock)
+                    {
+
+                    }
+                    else
+                    {
+                        if (actual_stock < global_issued_books)
+                        {
+                            Response.Write("<script>alert('Actual Stock value cannot" +
+                                " be less than the Issued books ');</script>");
+                        }
+                        else
+                        {
+                            current_stock = actual_stock - global_issued_books;
+                            TextBox6.Text = "" + current_stock;
+                        }
+                    }
+
+                    string genres = "";
+                    foreach (int i in ListBox1.GetSelectedIndices())
+                    {
+                        genres += ListBox1.Items[i] + ",";
+                    }
+                    genres = genres.Remove(genres.Length - 1);
+
+                    string filepath = "~book_invcentory/books1.png";
+                    string filename = Path.GetFileName(FileUpload1.PostedFile.FileName);
+                    if (filename == "" || filename == null)
+                    {
+                        filepath = global_filepath;
+                    }
+                    else
+                    {
+                        FileUpload1.SaveAs(Server.MapPath("book_invcentory/" + filename));
+                        filepath = "~book_invcentory/" + filename;
+                    }
+
+
+                    SqlConnection con = new SqlConnection(strcon);
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+                    
+                    SqlCommand cmd = new SqlCommand("UPDATE book_master_tbl SET " +
+                        "book_name=@book_name, genre=@genre, author_name=@author_name," +
+                        "publisher_name=@publisher_name, publisher_date=@publisher_date," +
+                        "language=@language, edition=@edition, book_cost=@book_cost," +
+                        "no_of_pages=@no_of_pages, book_description=@book_description," +
+                        "actual_stock=@actual_stock, current_stock=@current_stock," +
+                        "book_img_link=@book_img_link WHERE book_id='" + TextBox3.Text.Trim() + "'", con);
+
+
+                    cmd.Parameters.AddWithValue("@book_name", TextBox4.Text.Trim());
+                    cmd.Parameters.AddWithValue("@genre", genres);
+                    cmd.Parameters.AddWithValue("@author_name", DropDownList3.SelectedItem.Value);
+                    cmd.Parameters.AddWithValue("@publisher_name", DropDownList2.SelectedItem.Value);
+                    cmd.Parameters.AddWithValue("@publisher_date", TextBox1.Text.Trim());
+                    cmd.Parameters.AddWithValue("@language", DropDownList1.SelectedItem.Value);
+                    cmd.Parameters.AddWithValue("@edition", TextBox9.Text.Trim());
+                    cmd.Parameters.AddWithValue("@book_cost", TextBox10.Text.Trim());
+                    cmd.Parameters.AddWithValue("@no_of_pages", TextBox11.Text.Trim());
+                    cmd.Parameters.AddWithValue("@book_description", TextBox5.Text.Trim());
+                    cmd.Parameters.AddWithValue("@actual_stock", actual_stock.ToString());
+                    cmd.Parameters.AddWithValue("@current_stock", current_stock.ToString());
+                    cmd.Parameters.AddWithValue("@book_img_link", filepath);
+
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    GridView1.DataBind();
+                    Response.Write("<script>alert('Book updated successfully');</script>");
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("<script>alert('" + ex.Message + "');</script>");
+
+                }
+            }
+            else
+            {
+                Response.Write("<script>alert('Invalid Book ID');</script>");
+            }
+        }
         void getBookByID()
         {
             try
@@ -100,6 +230,12 @@ namespace E_Library_netFramework_
                             }
                         }
                     }
+
+                    global_actual_stock = Convert.ToInt32(dt.Rows[0]["actual_stock"].ToString().Trim());
+                    global_current_stock = Convert.ToInt32(dt.Rows[0]["current_stock"].ToString().Trim());
+                    global_issued_books = global_actual_stock - global_current_stock;
+                    global_filepath = dt.Rows[0]["book_img_link"].ToString();
+
                 }
                 else
                 {
@@ -112,7 +248,6 @@ namespace E_Library_netFramework_
 
             }
         }
-
         void fillAuthorPublisherValues()
         {
 
@@ -181,7 +316,7 @@ namespace E_Library_netFramework_
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-                if (dt.Rows.Count >= 1)
+                if (dt.Rows.Count > 0)
                 {
                     return true;
                 }
