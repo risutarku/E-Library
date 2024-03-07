@@ -67,19 +67,19 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <label>Book ID</label>
                                 <div class="form-group">
                                     <div class="input-group">
                                         <asp:TextBox CssClass="form-control" ID="TextBox3"
-                                            runat="server" placeholder="ID"></asp:TextBox>
-                                        <asp:LinkButton class="btn btn-primary" ID="LinkButton4"
-                                            runat="server" OnClick="LinkButton4_Click"><i class="fas fa-check-circle"></i></asp:LinkButton>
+                                            runat="server" placeholder="Book ID"></asp:TextBox>
+                                        <asp:Button class="form-control btn btn-primary" 
+                                            ID="Button4" runat="server" Text="Go" OnClick="Button4_Click" />
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-9">
+                            <div class="col-md-8">
                                 <label>Book Name</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="TextBox4"
